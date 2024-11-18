@@ -3,7 +3,7 @@ import random
 import os
 from colorama import Fore, Back, Style
 
-print("Jogo da Memória")
+print("Jogo da cobrinha")
 print("-"*30)
 nome = input("Nome do Jogador: ")
 pontos = []
@@ -41,10 +41,13 @@ def desenhar_cobra(tamanho, pixels):
         pygame.draw.rect(tela, branca, [pixel[0], pixel[1], tamanho, tamanho])
 
 def desenhar_pontuacao(pontuacao):
-    pontos.append(pontuacao)
-
     fonte = pygame.font.SysFont('Helvetica', 35)
     texto = fonte.render(f'Pontuação: {pontuacao}', True, azul)
+    tela.blit(texto, [1, 40])
+
+def desenhar_nome(nome_jogador):
+    fonte = pygame.font.SysFont('Helvetica', 35)
+    texto = fonte.render(f'Jogador: {nome_jogador}', True, azul)
     tela.blit(texto, [1, 1])
 
 def selecionar_velocidade(tecla):
@@ -113,6 +116,8 @@ def rodar_jogo():
         desenhar_cobra(tamanho_snake, pixels)
 
         desenhar_pontuacao(tamanho_cobrinha - 1)
+
+        desenhar_nome(nome)
 
         pygame.display.update()
 
