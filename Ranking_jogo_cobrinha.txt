@@ -1,5 +1,0 @@
-lucas;2
-otavio;1
-l;2
-otavio 2;4
-aaa;1
